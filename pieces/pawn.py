@@ -3,12 +3,7 @@ from pieces import piece
 
 class Pawn(piece.Piece):
     def __init__(self, px, py, color):
-        if color:
-            col = "white"
-        else:
-            col = "black"
         super().__init__(px, py, color)
 
-    def move(self, x, y):
-        self.pos_x = x
-        self.pos_y = y
+    def valid_moves(self):
+        return [[self.pos_x + 1, self.pos_y]]
