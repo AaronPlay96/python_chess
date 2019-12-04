@@ -55,8 +55,8 @@ class MyGame(arcade.Window):
                 x = (i[0] * (TABLE_SIZE / 8)) + (TABLE_SIZE / 16)
                 y = (i[1] * (TABLE_SIZE / 8)) + (TABLE_SIZE / 16)
                 if board.board[i[0]][i[1]] != 'e':
-                    arcade.draw_ellipse_outline(y, x, (TOTAL_SIZE / 8), (TOTAL_SIZE / 8),
-                                                arcade.color.RED, tilt_angle=0, border_width=4, num_segments=6)
+                    arcade.draw_rectangle_outline(y + 1, x, (TOTAL_SIZE / 8) - 3, (TOTAL_SIZE / 8) - 3,
+                                                  arcade.color.RED, 4)
                 else:
                     arcade.draw_circle_filled(y, x, 5, arcade.color.GREEN)
 
