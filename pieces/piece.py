@@ -13,8 +13,8 @@ class Piece:
         self.white = color
         self.moved = False
         self.selected = False
+        self.is_pawn = False
 
     # movement method, this method will be overitten in each one of the pieces for its particular behaviour.
-    def move(self, x, y):
-        self.pos_x = x
-        self.pos_y = y
+    def valid_moves(self, board):
+        pass
