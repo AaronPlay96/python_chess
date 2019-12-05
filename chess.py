@@ -66,28 +66,35 @@ class MyGame(arcade.Window):
         if x < 600:
             if board.pieces[ax][ay] != 'e':
                 if board.pieces[ax][ay].white and self.turn:
+                    print(str(1))
                     pass
                 elif not board.pieces[ax][ay].white and not self.turn:
+                    print(str(2))
                     pass
                 elif board.pieces[ax][ay].white and not self.turn and self.selection:
-                    moved = board.move(self.px, self.py, ax, ay)
+                    print(str(3))
+                    moved = board.move(self.px, self.py, ax, ay, self.pos_mov)
                     self.selection = False
                     self.pos_mov = []
                     if moved:
                         self.turn = not self.turn
                     return
                 elif not board.pieces[ax][ay].white and self.turn and self.selection:
-                    moved = board.move(self.px, self.py, ax, ay)
+                    print(str(4))
+                    moved = board.move(self.px, self.py, ax, ay, self.pos_mov)
                     self.selection = False
                     self.pos_mov = []
                     if moved:
                         self.turn = not self.turn
                     return
                 else:
+                    print(str(5))
                     self.selection = False
                     return
             if not self.selection:
+                print(str(6))
                 if board.board[ax][ay] != 'e':
+                    print(str(7))
                     self.px = ax
                     self.py = ay
                     board.pieces[self.px][self.py].selected = True
@@ -96,12 +103,15 @@ class MyGame(arcade.Window):
                     self.sx, self.sy = calculate_coordinates(ax, ay)
                     self.selection = True
             else:
-                moved = board.move(self.px, self.py, ax, ay)
+                print(str(8))
+                moved = board.move(self.px, self.py, ax, ay, self.pos_mov)
+                print("holiiiii")
                 self.selection = False
                 self.pos_mov = []
                 if moved:
                     self.turn = not self.turn
             if len(self.pos_mov) == 0:
+                print(str(9))
                 self.selection = False
 
 

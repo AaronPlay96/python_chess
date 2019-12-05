@@ -39,18 +39,23 @@ class Board:
         self.pieces[7] = [Rook(7, 0, False), Knight(7, 1, False), Bishop(7, 2, False), Queen(7, 3, False),
                           King(7, 4, False), Bishop(7, 5, False), Knight(7, 6, False), Rook(7, 7, False)]
 
-    def move(self, i, j, x, y):
-        if [x, y] in self.pieces[i][j].valid_moves(self.pieces):
+    def move(self, i, j, x, y, moves):
+        if [x, y] in moves:  # self.pieces[i][j].valid_moves(self.pieces):
+            print("hola 1")
             # moving the piece in the board array
             self.board[x][y] = self.board[i][j]
             self.board[i][j] = 'e'
+            print("hola 2")
             # moving the piece in the piece array
             self.pieces[x][y] = self.pieces[i][j]
             self.pieces[i][j] = 'e'
+            print("hola 3")
+            print(str(self.pieces[x][y]) + " " + str(x) + " " + str(y))
             self.pieces[x][y].pos_x = x
             self.pieces[x][y].pos_y = y
+            print("hola 4")
             self.pieces[x][y].moved = True
-            self.pieces[x][y].selected = False
+            print("hola 3")
             return True
         else:
             self.pieces[i][j].selected = False
